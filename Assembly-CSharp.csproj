@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{4897CBCF-9F7B-BB9E-0E78-70C43FB63FCC}</ProjectGuid>
+	<ProjectGuid>{BAC10644-1E62-0C3F-845F-C609C80C4B98}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ClearTrails.cs" />
      <Compile Include="Assets\Scripts\Gravity.cs" />
+     <Compile Include="Assets\Scripts\RandomColor.cs" />
      <Compile Include="Assets\Scripts\RandomForce.cs" />
      <Compile Include="Assets\Scripts\RandomMass.cs" />
  <Reference Include="UnityEngine.UI">

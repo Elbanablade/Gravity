@@ -15,7 +15,7 @@ public class Gravity : MonoBehaviour {
 	void Update () {
 		GameObject[] allObjects = getAllGameobjectsInScene ();
 		foreach (GameObject obj in allObjects) {
-			if(!this.name.Equals(obj.name) && !obj.name.Equals("Camera") && !obj.name.ToLower().Equals("directional light"))
+			if(!this.name.Equals(obj.name) && obj.name.ToLower().Contains("sphere") && this.name.ToLower().Contains("sphere"))
 			{
 				this.GetComponent<Rigidbody>().AddRelativeForce(getForce(this.GetComponent<Rigidbody>(),obj.GetComponent<Rigidbody>()));
 			}
