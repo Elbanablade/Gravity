@@ -10,16 +10,18 @@ public class Gravity : MonoBehaviour {
 	private Vector3 totalForce;
 	private Rigidbody[] allObjects;
 	private Rigidbody self;
+	public float speed = 1;
 
 	// Use this for initialization
 	void Start () {
 		allObjects = UnityEngine.Object.FindObjectsOfType<Rigidbody>() ;
 		self = this.GetComponent<Rigidbody> ();
+		InvokeRepeating ("RunForces", 0, (1/speed)* .02f);
 	}
 
 	
 	// Update is called once per frame
-	void Update () {
+	void RunForces () {
 		totalForce = Vector3.zero;
 		foreach (Rigidbody obj in allObjects) {
 			if(!self.name.Equals(obj.name))
