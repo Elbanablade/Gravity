@@ -1,30 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Gravity : MonoBehaviour {
 
 	private float G = (float)6.67384 * Mathf.Pow (10, -9);
 	public int forceMultiplier = 1;
 	public int massScale = 1;
+	private Vector3 totalForce;
+	private Rigidbody[] allObjects;
+	private Rigidbody self;
 
 	// Use this for initialization
 	void Start () {
+		allObjects = UnityEngine.Object.FindObjectsOfType<Rigidbody>() ;
+		self = this.GetComponent<Rigidbody> ();
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject[] allObjects = getAllGameobjectsInScene ();
-		foreach (GameObject obj in allObjects) {
-			if(!this.name.Equals(obj.name) && obj.name.ToLower().Contains("sphere") && this.name.ToLower().Contains("sphere"))
+		totalForce = Vector3.zero;
+		foreach (Rigidbody obj in allObjects) {
+			if(!self.name.Equals(obj.name))
 			{
-				this.GetComponent<Rigidbody>().AddRelativeForce(getForce(this.GetComponent<Rigidbody>(),obj.GetComponent<Rigidbody>()));
+				totalForce += getForce(self,obj);
 			}
 		}
-	}
-
-	GameObject[] getAllGameobjectsInScene()
-	{
-		return UnityEngine.Object.FindObjectsOfType<GameObject>() ;
+		self.AddRelativeForce(totalForce);
 	}
 
 	Vector3 getForce(Rigidbody obj1, Rigidbody obj2)

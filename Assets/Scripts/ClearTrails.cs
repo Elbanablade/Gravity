@@ -5,6 +5,10 @@ using UnityEngine.UI;
 public class ClearTrails : MonoBehaviour {
 
 	public Camera cam;
+	void Start()
+	{
+		Black ();
+	}
 
 	public void Black(){
 		cam.clearFlags = CameraClearFlags.SolidColor;

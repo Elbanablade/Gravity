@@ -10,9 +10,4 @@ public class RandomColor : MonoBehaviour {
 		// apply it on current object's material
 		go.GetComponent<Renderer> ().material.color = newColor;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 }
